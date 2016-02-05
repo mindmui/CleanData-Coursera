@@ -64,6 +64,19 @@
   # extensible markup language
   # frequently used to store structured data
   # Extracting XML is the basis for most web scraping
+    # tags <section> </section> or <br/>
+    # elements are specific examples of tags
+    # attribute are components of the label
+  library(XML)
+  fileUrl <- "http://www.w3schools.com/xml/simple.xml"
+  doc <- xmlTreeParse(fileUrl,useInternal=TRUE) # for html, use htmlTreeParse
+  rootNode <- xmlRoot(doc)
+  xmlName(rootNode)
+    # access parts of XML, just like how you access a list
+  # xpathSApply for web scraping **
   
-        
+# Reading JSON
+  # Javascript Object Notation
+  # Lightweight data storage
+  
     
