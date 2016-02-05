@@ -78,5 +78,32 @@
 # Reading JSON
   # Javascript Object Notation
   # Lightweight data storage
-  
+  library(jsonlite)
+  jsonData <- fromJSON("url")
+  names(jsonData) # get all 
+  names(jsonData$owner) # just like accessing column of a data frame
+  # Writing data frames to JSON
+    myjson <- toJSON(irisframe, pretty=TRUE)
+  # convert JSON back to data frame
+    iris2 <- fromJSON(myjson)
+
+# data.table
+  # inherits from data.frame()
+  #  Written in C, so it is much faster!
+  library(data.table)
+  DT = data.table(x=rnorm(9),y=rep(c("a","b"))) #just like what you do with data.frame()
+  # Subsetting data talbe
+    # is the same as how you do for data frame
+    # HOWEVER! subsetting columns are different
+  # Adding new columns
+    DT[,w:=z^2] # to generate new var, w as a square of z
+  # Multiple operations:
+    DT[,m:={tmp<-(x+z); log2(tmp+5)}] # note that in R, {} is to put commmands together
+  # Special Variables
+    .N # to count the number of time (the item appears)
+  # Keys ** very handy
+    setkey(DT,x) # set x to be the key for DT
+  # Joins 
+    merge(DT1,DT2) # merge data table with the same key
+
     
