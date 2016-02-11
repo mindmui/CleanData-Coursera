@@ -1,4 +1,4 @@
-# Week 1 -Getting and Cleaning Data
+# Week 1 - Getting and Cleaning Data
  
 # The goal of the course:
 # Raw data* -> Processing script* -> Tidy data* -> Data Analysis -> Data Communication
