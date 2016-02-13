@@ -25,4 +25,27 @@
     y 
   
 # Summarizing data
+  # Setting up
+    setwd("/Users/Mind/Desktop/Cleandata-Coursera")
+    if(!file.exists("./data")){
+      dir.create("data")
+    }
+    fileUrl <- "http://data.baltimorecity.gov/api/views/k5ry-ef3g/rows.csv?accessType=DOWNLOAD"
+    download.file(fileUrl,destfile="./data/restaurants.csv",method="curl")
+    restData <- read.csv("./data/restaurants.csv")
+  # look at a bit of data
+    head(restData)
+    tail(restData, n=2) # shows bottom 2
+    summary(restData) # for qualitative shows the count
+    # for quantitative shows the distribution
+    str(restData)
+    quantile(restData$councilDistrict,na.rm=TRUE)
+    quantile(restData$councilDistrict,probs = c(0.5,0.75,0.9)) # different percentile
+  # make table
+    table(restData$zipCode,useNA = "ifany") # shows the missing value (if any)
   
+  # check for missing values
+    sum(is.na(restData$councilDistrict))
+    any(restData$zipCode > 0)
+    all(restData$zipCode > 0)
+    
