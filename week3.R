@@ -168,5 +168,22 @@
   summarise(years, pm25 = mean(pm25, na.rm = TRUE))
   
   # pipeline : %>%
+
+# Merging data
+  # data from peer review experiments
+  reviews = read.csv("file1.csv")
+  solutions <- read.csv("file2.csv")
+  names(reviews) # explore the column to merges
+  names(solutions)
+  mergedData = merge(reviews,solutions,by.x="solution_id",by.y="id",all=TRUE)
+    # for reviews data frame use "solution_id"
+    # for solutions use "id" column
+    # all=TRUE implies add new row if doesn't exist
+  
+  # Using join commands from dplyr packages*
+  join(df1,df2)
+  join_all(df1,df2,df3)
+    # the joining df MUST have the SAME column name! (drawback compared to merge)
+    # however, join is easier and faster when you have more than 1 data frame.
   
   
